@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genre: MyString
+  chapter_count: 1
+  rating: 1
+  manga_url: MyText
+  author: MyString
+  artist: MyString
+  current: false
+
+two:
+  title: MyString
+  genre: MyString
+  chapter_count: 1
+  rating: 1
+  manga_url: MyText
+  author: MyString
+  artist: MyString
+  current: false
