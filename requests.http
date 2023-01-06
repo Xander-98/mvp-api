@@ -1,0 +1,21 @@
+POST http://localhost:3000/otaku.json
+Content-Type: application/json
+
+{
+  "anime_id": 1,
+  "user_id": 1
+}
+
+###
+GET https://api.jikan.moe/v4/top/anime?filter=%22bypopularity%22&limit=10
+
+###
+GET http://localhost:3000/animes 
+
+###
+GET http://localhost:3000/search
+content-Content-Type: application/json
+
+{
+  "search": "dragon"
+}
