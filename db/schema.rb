@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_030921) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_08_153854) do
   create_table "animes", force: :cascade do |t|
     t.string "title"
     t.text "image_url"
@@ -27,6 +27,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_030921) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.integer "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "users", force: :cascade do |t|

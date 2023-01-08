@@ -17,7 +17,7 @@ class OtakusController < ApplicationController
     if params[:search].blank?
     else
       query = params[:search]
-      anime_search = HTTP.get("https://api.jikan.moe/v4/anime?q=" + query + "&order_by=title&sort=asc")
+      anime_search = HTTP.get("https://api.jikan.moe/v4/anime?q=#{query}&order_by=title&sort=asc")
       anime_search_data = anime_search.parse(:json)
       render json: anime_search_data.as_json
     end
