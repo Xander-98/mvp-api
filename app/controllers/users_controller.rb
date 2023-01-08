@@ -1,21 +1,17 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
-    render template: "users/new"
-  end
+  protect_from_forgery with: :null_session
 
   def create
-    @user = User.new(
-      username: params[:user][:username],
-      email: params[:user][:email],
-      password: params[:user][:password],
-      password_confirmation: params[:user][:password_confirmation],
+    user = User.new(
+      username: params[:username],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation],
     )
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to "/"
+    if user.save
+      render json: { message: "User created successfully" }, status: :created
     else
-      render :new, status: :unprocessable_entity
+      render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
 end
