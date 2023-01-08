@@ -2,7 +2,7 @@ class OtakusController < ApplicationController
   def new
     otaku = Otaku.create(
       anime_id: params[:anime_id],
-      user_id: params[:user_id],
+      user_id: current_user.id,
     )
     render json: otaku.as_json
   end

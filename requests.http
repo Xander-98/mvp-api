@@ -22,3 +22,21 @@ Content-Type: application/json
   "password": "password",
   "password_confirmation": "password"
 }
+
+### 
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "password"
+}
+
+###
+POST http://localhost:3000/otaku
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "anime_id": 1
+}
