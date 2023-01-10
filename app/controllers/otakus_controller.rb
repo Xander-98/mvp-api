@@ -7,6 +7,15 @@ class OtakusController < ApplicationController
     render json: otaku.as_json
   end
 
+  def show_favorites
+    if params[:user_id].blank?
+    else
+      user = params[:user_id]
+      otaku = Otaku.where(user_id: user)
+      render json: otaku.as_json
+    end
+  end
+
   def all_anime
     animes = HTTP.get("https://api.jikan.moe/v4/top/anime?filter=%22bypopularity%22&limit=10")
     anime_data = animes.parse(:json)
